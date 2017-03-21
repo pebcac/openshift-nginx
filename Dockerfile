@@ -2,11 +2,6 @@ FROM registry.access.redhat.com/rhel7:latest
 
 MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
 
-RUN useradd -ms /bin/bash nginx
-
-ENV HOME /home/nginx
-USER nginx
-
 ENV NGINX_VERSION 1.9.2-1.el7.ngx
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
@@ -22,6 +17,11 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 VOLUME ["/var/cache/nginx"]
+
+RUN useradd -ms /bin/bash nginx
+
+ENV HOME /home/nginx
+USER nginx
 
 EXPOSE 80 443
 
