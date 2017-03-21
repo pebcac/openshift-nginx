@@ -18,10 +18,10 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 VOLUME ["/var/cache/nginx"]
 
-RUN useradd -ms /bin/bash nginx
+#RUN useradd -ms /bin/bash nginx
 
-ENV HOME /home/nginx
-USER nginx
+#ENV HOME /home/nginx
+#USER nginx
 
 EXPOSE 80 443
 
